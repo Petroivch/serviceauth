@@ -1,4 +1,4 @@
-package repository;
+package com.example.serviceauth;
 
 import enums.Authorities;
 import model.User;

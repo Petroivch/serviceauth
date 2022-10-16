@@ -1,4 +1,4 @@
-package controller;
+package com.example.serviceauth;
 
 import enums.Authorities;
 import exception.InvalidCredentials;
@@ -6,13 +6,17 @@ import exception.UnauthorizedUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.AuthorizationService;
 
 import java.util.List;
 
 @RestController
 public class AuthorizationController {
-    AuthorizationService service = new AuthorizationService();
+    private final AuthorizationService service;
+
+    public AuthorizationController(AuthorizationService service) {
+        this.service = service;
+    }
+
 
     @GetMapping(path = "/authorize")
     public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {

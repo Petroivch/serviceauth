@@ -1,15 +1,20 @@
-package service;
+package com.example.serviceauth;
 
 import enums.Authorities;
 import exception.InvalidCredentials;
 import exception.UnauthorizedUser;
 import org.springframework.http.HttpStatus;
-import repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AuthorizationService {
-    UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository;
+
+    public AuthorizationService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<Authorities> getAuthorities(String user, String password) {
         List<Authorities> userAuthorities = userRepository.getUserAuthorities(user);
