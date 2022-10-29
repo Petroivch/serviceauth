@@ -48,7 +48,7 @@ http {
         }
 
         location /signin {
-            alias "D:/IdeaProjects/7.springBoot-homeworks/homework7.4_Nginx/src/main/resources/";
+            alias "C:/IdeaProjects/serviceauth/src/main/resources/";
             index index.html;
         }
 
